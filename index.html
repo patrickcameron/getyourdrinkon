@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Get Your Drink On" />
+    <meta property="og:description"   content="Quickly locate your closest drinking alley in Toronto." />
+    <!-- <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" /> -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Get Your Drink On</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<div class="errorBox displayNone">
+			<img src="images/technicalDifficulties.jpg" alt="Technical Difficulties">
+		</div>
+		<div class="innerWrapper">
+			<div class="title title1">
+				<h1 class="titleLetters titleLetters1 blue">get your</h1>
+				<h1 class="titleLetters titleLetters1 red">get your</h1>
+				<h1 class="titleLetters titleLetters1 yellow">get your</h1>
+			</div>
+			<div class="title title2">
+				<h1 class="titleLetters titleLetters2 blue">drink on.</h1>
+				<h1 class="titleLetters titleLetters2 red">drink on.</h1>
+				<h1 class="titleLetters titleLetters2 yellow">drink on.</h1>
+			</div>
+			<form class="location">
+				<input class="enterLocation" type="search" placeholder="Enter address or post code">
+			</form>
+			<div class="description">
+				<p class="restrictions"><strong><span class="redStar">*</span>Downtown and West End Toronto only.</strong></p>
+				<p>Find the closest LCBO, the cheapest booze in stock at that LCBO, and the nearest secluded alleyway to drink it in.</p>
+				<p class="smallText">Designed by <a href="http://patrickcameron.ca" target="_blank">Patrick Cameron</a>.</p>
+			</div>
+		</div>
+	</header>
+	<section class="panel displayNone yourLCBO">
+		<div class="innerWrapper">
+			<div id="map"></div>
+			<div class="mapInfo">
+				<p class="closestLCBO"><em>closest LCBO</em></p>
+				<p class="LCBOname"></p>
+				<p class="LCBOaddress">
+				<div class="okButton okButton1"><p>Select Booze <i class="fa fa-chevron-right"></i></p></div>
+				<a href="index.html"><div class="playAgain okButton1 displayNone"><p>Play Again</p></div></a>
+			</div>
+		</div>
+	</section>
+	<section class="panel displayNone yourBooze">
+		<div class="innerWrapper">
+			<div class="grey"><!-- <h2>TRY AGAIN</h2> --><i class="fa fa-refresh"></i></div>
+			<div class="displayBooze">
+				<img src="http://www.lcbo.com/content/dam/lcbo/products/generic.jpg/jcr:content/renditions/cq5dam.thumbnail.319.319.png" alt="image of suggested alcohol">
+				<h2 class="boozeTitle"></h2>
+				<p class="boozeBlurb"></p>
+				<p class="atYourStore"></p>
+				<p class="boozePercentPriceStock"></p>
+			</div>
+			<div class="green"><h2>OK</h2></div>
+		</div>
+	</section>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvdJsbRPNlJMzuNrgRQuoDw3EjsLoG7WU">
+	    </script>
+	<script src="scripts/script.js"></script>
+	<script src="scripts/jquery.fittext.js"></script>
+</body>
+</html>
