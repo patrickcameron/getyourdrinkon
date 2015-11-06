@@ -5,6 +5,14 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+body {
+	font-size: 62.5%;
+	font-family: sans-serif;
+	font-weight: 700;
+	-webkit-font-smoothing: antialiased;
+
+}
+
 //turn off highlighting for all selected form elements
 
 input:focus {
@@ -22,6 +30,8 @@ input:focus {
 .displayInlineBlock {
 	display: inline-block;
 }
+
+// error message pop-up
 
 .technicalDifficulties {
 	display: flex;
@@ -64,13 +74,7 @@ input:focus {
 	height: 100%;
 }
 
-body {
-	font-size: 62.5%;
-	font-family: sans-serif;
-	font-weight: 700;
-	-webkit-font-smoothing: antialiased;
-
-}
+//basic font styling
 
 h1 {
 	font-size: 11rem;
@@ -150,17 +154,17 @@ section.panel {
 	border-bottom: 1px solid black;
 	justify-content: center;
 	align-items: center;
-	img {
-		margin: 0 auto;
-	}
 }
 
 header {
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	color: black;
 	overflow: hidden;
 	background: eggshell;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
 	border-top: 20px solid black;
 	border-left: 20px solid #0091E5;
 	border-bottom: 20px solid #E42149;
@@ -187,7 +191,7 @@ header {
 			position: relative;
 		}
 		p {
-			width: 600px;
+			max-width: 500px;
 			line-height: 1.5;
 		}
 		a {
@@ -263,66 +267,129 @@ section.yourLCBO {
 }
 
 section.yourBooze {
-	border-top: 20px solid eggshell;
-	border-left: 20px solid eggshell;
-	border-right: 20px solid eggshell;
-	border-bottom: 20px solid eggshell;
 	.innerWrapper{
 		display: flex;
 		flex-wrap: nowrap;
 	}
+	.selectButtons {
+		max-width: 400px;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+	}
 	.grey {
-		background:grey;
-		width: 25%;
-		height: 100%;
+		width: 200px;
+		background:black;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		color: white;
 		cursor: pointer;
-		position: relative;
+		margin-right: 10px;
 		i {
-			font-size: 3rem;
+			font-size: 1.5rem;
+			padding-right: 15px;
 		}
 	}
+	.grey:hover {
+		background: #E5D73D;
+	}
 	.green {
-		background:green;
-		width: 25%;
-		height: 100%;
+		width: 200px;
+		background: black;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		color: white;
 		cursor: pointer;
-		position: absolute;
+		margin-left: 10px;
+	}
+	.green:hover {
+		background: #0091E5;
 	}
 	.displayBooze {
-		width: 50%;
-		height: 100%;
-		padding: 0 40px;
+		max-width: 700px;
+		margin: 0 auto;
 		display: flex;
 		flex-wrap: nowrap;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		h2 {
-			width: 60%;
 			text-align: center;
+			margin: 0;
 		}
 		p {
 			width: 60%;
 			text-align: center;
+		}
+		.displayBoozeMain {
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			justify-content: center;
+			margin: 20px 0;
+		}
+		.displayBoozeText {
+			display: flex;
+			flex-wrap: nowrap;
+			flex-direction: column;
+			align-items: center;
 		}
 	}
 }
 
 //media calls
 
-@media (max-width: 850px) {
-	header, section.yourLCBO, section.yourBooze {
-		
-	}
+@media (max-width: 950px) {
 	h1 {
-	font-size: 4rem;
+		font-size: 7rem;
+		line-height: 0.6;
+		max-width: 200px;
+		margin: 0 auto;
+	}
+	h2 {
+		font-size: 1.5rem;
+	}
+	p {
+		font-size: 0.9rem;
+	}
+	form.location {
+		margin: 0;
+	}
+	header {
+		border-top: 10px solid black;
+		border-left: 10px solid #0091E5;
+		border-bottom: 10px solid #E42149;
+		border-right: 10px solid #FFF146;
+	}
+	header .innerWrapper p {
+		max-width: 300px;
+		font-size: 0.9rem;
+	}
+	header .innerWrapper .title {
+		left: -70px;
+	}
+	header .innerWrapper .title1 {
+		top: 30px;
+	}
+	header .innerWrapper .title2 {
+		top: 10px;
+	}
+	header form input {
+		width: 90%;
+		max-width: 310px;
+	}
+	section.yourLCBO {
+		border: 10px solid #E42149;
+	}
+	.red {
+		top: -138px;
+		left: 15px;
+	}
+	.yellow {
+		top: -275px;
+		left: -9px;
 	}
 }

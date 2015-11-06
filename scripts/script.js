@@ -847,7 +847,7 @@ function initStoreMap() {
                   center: start,
                   scrollwheel: false,
                   zoom: 16,
-                  disableDefaultUI: true,
+                  disableDefaultUI: false,
                   zoomControlOptions: {style: google.maps.ZoomControlStyle.DEFAULT,},
                   disableDoubleClickZoom: true,
                   scrollwheel: false,

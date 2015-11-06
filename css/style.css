@@ -166,6 +166,13 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   box-sizing: border-box;
 }
 
+body {
+  font-size: 62.5%;
+  font-family: sans-serif;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+}
+
 input:focus {
   outline: none;
 }
@@ -223,13 +230,6 @@ input:focus {
 
 #map {
   height: 100%;
-}
-
-body {
-  font-size: 62.5%;
-  font-family: sans-serif;
-  font-weight: 700;
-  -webkit-font-smoothing: antialiased;
 }
 
 h1 {
@@ -313,16 +313,15 @@ section.panel {
   align-items: center;
 }
 
-section.panel img {
-  margin: 0 auto;
-}
-
 header {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   color: black;
   overflow: hidden;
   background: eggshell;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
   border-top: 20px solid black;
   border-left: 20px solid #0091E5;
   border-bottom: 20px solid #E42149;
@@ -357,7 +356,7 @@ header .innerWrapper .title2 {
 }
 
 header .innerWrapper p {
-  width: 600px;
+  max-width: 500px;
   line-height: 1.5;
 }
 
@@ -439,50 +438,57 @@ section.yourLCBO p {
   padding: 10px 20px;
 }
 
-section.yourBooze {
-  border-top: 20px solid eggshell;
-  border-left: 20px solid eggshell;
-  border-right: 20px solid eggshell;
-  border-bottom: 20px solid eggshell;
-}
-
 section.yourBooze .innerWrapper {
   display: flex;
   flex-wrap: nowrap;
 }
 
+section.yourBooze .selectButtons {
+  max-width: 400px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
 section.yourBooze .grey {
-  background: grey;
-  width: 25%;
-  height: 100%;
+  width: 200px;
+  background: black;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   cursor: pointer;
-  position: relative;
+  margin-right: 10px;
 }
 
 section.yourBooze .grey i {
-  font-size: 3rem;
+  font-size: 1.5rem;
+  padding-right: 15px;
+}
+
+section.yourBooze .grey:hover {
+  background: #E5D73D;
 }
 
 section.yourBooze .green {
-  background: green;
-  width: 25%;
-  height: 100%;
+  width: 200px;
+  background: black;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   cursor: pointer;
-  position: absolute;
+  margin-left: 10px;
+}
+
+section.yourBooze .green:hover {
+  background: #0091E5;
 }
 
 section.yourBooze .displayBooze {
-  width: 50%;
-  height: 100%;
-  padding: 0 40px;
+  max-width: 700px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
@@ -491,8 +497,8 @@ section.yourBooze .displayBooze {
 }
 
 section.yourBooze .displayBooze h2 {
-  width: 60%;
   text-align: center;
+  margin: 0;
 }
 
 section.yourBooze .displayBooze p {
@@ -500,8 +506,69 @@ section.yourBooze .displayBooze p {
   text-align: center;
 }
 
-@media (max-width: 850px) {
+section.yourBooze .displayBooze .displayBoozeMain {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+section.yourBooze .displayBooze .displayBoozeText {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 950px) {
   h1 {
-    font-size: 4rem;
+    font-size: 7rem;
+    line-height: 0.6;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+  form.location {
+    margin: 0;
+  }
+  header {
+    border-top: 10px solid black;
+    border-left: 10px solid #0091E5;
+    border-bottom: 10px solid #E42149;
+    border-right: 10px solid #FFF146;
+  }
+  header .innerWrapper p {
+    max-width: 300px;
+    font-size: 0.9rem;
+  }
+  header .innerWrapper .title {
+    left: -70px;
+  }
+  header .innerWrapper .title1 {
+    top: 30px;
+  }
+  header .innerWrapper .title2 {
+    top: 10px;
+  }
+  header form input {
+    width: 90%;
+    max-width: 310px;
+  }
+  section.yourLCBO {
+    border: 10px solid #E42149;
+  }
+  .red {
+    top: -138px;
+    left: 15px;
+  }
+  .yellow {
+    top: -275px;
+    left: -9px;
   }
 }
