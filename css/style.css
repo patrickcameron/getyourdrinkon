@@ -387,6 +387,11 @@ header form input {
   color: black;
 }
 
+header .twitter-share-button {
+  vertical-align: text-bottom;
+  margin-left: 10px;
+}
+
 .blue {
   color: #0091E5;
   position: relative;
@@ -480,6 +485,11 @@ section.yourBooze .green {
   color: white;
   cursor: pointer;
   margin-left: 10px;
+}
+
+section.yourBooze .green i {
+  font-size: 1.5rem;
+  padding-left: 15px;
 }
 
 section.yourBooze .green:hover {

@@ -218,6 +218,10 @@ header {
 		color: black;
 		}
 	}
+	.twitter-share-button {
+		vertical-align: text-bottom;
+		margin-left: 10px;
+	}
 }
 
 
@@ -304,6 +308,10 @@ section.yourBooze {
 		color: white;
 		cursor: pointer;
 		margin-left: 10px;
+		i {
+			font-size: 1.5rem;
+			padding-left: 15px;
+		}
 	}
 	.green:hover {
 		background: #0091E5;
