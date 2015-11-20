@@ -107,7 +107,6 @@ findLCBO.storeLookup = function(userChoice) {
             }
       }).then(function(res) {
             findLCBO.isLocal(res.result[0].id);
-            console.log(res);
       });
 };
 
@@ -125,7 +124,6 @@ findLCBO.isLocal = function(userStore) {
                   $('.errorBox').addClass('technicalDifficulties')
             } else if (withinArea === true) {
                   userStoreNumber = userStore;
-                  console.log("lcbo is valid. store number " + userStoreNumber);
                   withinArea = false;
                   LCBOlat = userfindLCBOinfo.latitude;
                   LCBOlong = userfindLCBOinfo.longitude;
@@ -154,7 +152,6 @@ findLCBO.isLocal = function(userStore) {
 
 selectBooze.randBooze = function() {
       boozeSuggestion = boozeInfo[Math.floor(Math.random() * boozeInfo.length)];
-      console.log("boozeSuggestion = " + boozeSuggestion.id)
       checkInventory.search(boozeSuggestion.id);
 };
 
@@ -168,13 +165,10 @@ checkInventory.search = function(ID) {
             method: 'GET',
       }).then(function(res) {
             if (res.result === null) {
-                  console.log("NULL result");
                   selectBooze.randBooze();
             } else if (res.result.quantity === 0) {
-                  console.log("not in stock");
                   selectBooze.randBooze();
             } else if (res.result.quantity > 0) {
-                  console.log("it worked!" + res.result.quantity);
                   stockNumber = res.result.quantity;
                   selectBooze.displayOnPage();
             } else {
@@ -192,7 +186,6 @@ selectBooze.displayOnPage = function() {
             method: 'GET',
       }).then(function(res) {
             $('.yourBooze').addClass('displayFlex').removeClass('displayNone');
-            console.log(res.result.name);
             $('div.displayBooze img').attr('src', res.result.image_thumb_url);
             $('h2.boozeTitle').text(res.result.name);
             $('h2.boozeTitle').text(boozeSuggestion.gydoNAME);
