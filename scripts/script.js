@@ -1,6 +1,17 @@
+// var shortcuts for common jquery targets
+
+var $yourBooze = $('.yourBooze');
+var $h2boozeTitle = $('h2.boozeTitle');
+var $green = $('.green');
+var $errorBox = $('.errorBox')
+
+
+// API keys
+
 var LCBOKey = "MDo1ZTc4YTcyYy03MzdkLTExZTUtOGRmZS1lM2ZiYWFhODVmMGM6QU5OMWNmM0t1S09HcEtnQWlWSUR2eGhrbzdyakVUa3dSMzFi";
 
 var googleAPI = "AIzaSyDvdJsbRPNlJMzuNrgRQuoDw3EjsLoG7WU";
+
 
 // main functions:
 
@@ -9,6 +20,7 @@ var findLCBO = {};
 var checkInventory = {};
 
 var selectBooze = {};
+
 
 // universal variables:
 
@@ -25,6 +37,9 @@ var withinArea = false;
 var boozeSuggestion;
 
 var stockNumber;
+
+
+// initialize Google Map and display closest store location
 
 function initStoreMap() {
       var start = {lat: LCBOlat, lng: LCBOlong};
@@ -67,7 +82,7 @@ function initStoreMap() {
             icon: image
             });
       directionsService.route(request, function(response, status) {
-            $('.green').on('click', function() {
+            $green.on('click', function() {
                   if (status == google.maps.DirectionsStatus.OK) {
                   // Display the route on the map.
                   directionsDisplay.setDirections(response);
@@ -81,6 +96,7 @@ function initStoreMap() {
       });
 };
 
+
 // find closest LCBO and find out if it's valid part 1
 
 findLCBO.getAddress = function() {
@@ -92,6 +108,7 @@ findLCBO.getAddress = function() {
             }
       });
 }
+
 
 //...part 2...
 
@@ -110,6 +127,7 @@ findLCBO.storeLookup = function(userChoice) {
       });
 };
 
+
 //...part 3...
 
 findLCBO.isLocal = function(userStore) {
@@ -120,8 +138,8 @@ findLCBO.isLocal = function(userStore) {
                }
             };
             if (withinArea === null) {
-                  $('.errorBox').removeClass('displayNone');
-                  $('.errorBox').addClass('technicalDifficulties')
+                  $errorBox.removeClass('displayNone');
+                  $errorBox.addClass('technicalDifficulties')
             } else if (withinArea === true) {
                   userStoreNumber = userStore;
                   withinArea = false;
@@ -135,13 +153,13 @@ findLCBO.isLocal = function(userStore) {
                   $('.okButton1').on('click', function() {
                         selectBooze.randBooze();
                         $('.yourLCBO').removeClass('displayFlex').addClass('displayNone');
-                        $('.yourBooze').removeClass('displayNone').addClass('displayFlex');
+                        $yourBooze.removeClass('displayNone').addClass('displayFlex');
                   });      
 
             } else {
-                  $('.errorBox').removeClass('displayNone').addClass('technicalDifficulties');
+                  $errorBox.removeClass('displayNone').addClass('technicalDifficulties');
                   alert("Looks like you're outside our coverage area. Sorry :(");
-                  $('.errorBox').on('click', function() {
+                  $errorBox.on('click', function() {
                         $(this).removeClass('technicalDifficulties').addClass('displayNone');
                   });
             };
@@ -177,7 +195,8 @@ checkInventory.search = function(ID) {
       });
 };
 
-// display the sweet sweet Booze
+
+// display the booze in stock at closest LCBO
 
 selectBooze.displayOnPage = function() {
       $.ajax({
@@ -185,15 +204,15 @@ selectBooze.displayOnPage = function() {
             dataType: 'jsonp',
             method: 'GET',
       }).then(function(res) {
-            $('.yourBooze').addClass('displayFlex').removeClass('displayNone');
+            $yourBooze.addClass('displayFlex').removeClass('displayNone');
             $('div.displayBooze img').attr('src', res.result.image_thumb_url);
-            $('h2.boozeTitle').text(res.result.name);
-            $('h2.boozeTitle').text(boozeSuggestion.gydoNAME);
+            $h2boozeTitle.text(res.result.name);
+            $h2boozeTitle.text(boozeSuggestion.gydoNAME);
             $('p.boozeBlurb').text(boozeSuggestion.blurb);
             $('p.boozePercentPriceStock').text(res.result.alcohol_content / 100 + '% alcohol / $' + (res.result.price_in_cents / 100).toFixed(2) );
             $('p.atYourStore').html("<b>" + stockNumber + " in stock at " + userfindLCBOinfo.name + "</b>");
-            $('.green').on('click', function() {
-                  $('.yourBooze').removeClass('displayFlex').addClass('displayNone');
+            $green.on('click', function() {
+                  $yourBooze.removeClass('displayFlex').addClass('displayNone');
                   $('.yourLCBO').removeClass('displayNone').addClass('displayFlex');
                   $('p.closestLCBO').addClass('displayNone');
                   $('p.LCBOname').text("Nearest drinking alley.");
@@ -206,6 +225,8 @@ selectBooze.displayOnPage = function() {
             })
       });
 };
+
+// init program
 
 $(function() {
       findLCBO.getAddress();
