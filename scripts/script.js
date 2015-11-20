@@ -985,8 +985,8 @@ findLCBO.isLocal = function(userStore) {
                   });      
 
             } else {
-                  $('.errorBox').removeClass('displayNone');
-                  $('.errorBox').addClass('technicalDifficulties');
+                  $('.errorBox').removeClass('displayNone').addClass('technicalDifficulties');
+                  alert("Looks like you're outside our coverage area. Sorry :(");
                   $('.errorBox').on('click', function() {
                         $(this).removeClass('technicalDifficulties').addClass('displayNone');
                   });
