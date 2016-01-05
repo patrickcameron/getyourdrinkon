@@ -255,10 +255,12 @@ p.restrictions {
   padding: 0;
 }
 
-p.smallText {
+header .innerWrapper p.smallText {
   font-size: 1rem;
   margin: 0;
   padding: 0;
+  max-width: 320px;
+  margin: 0 auto;
 }
 
 span.redStar {
